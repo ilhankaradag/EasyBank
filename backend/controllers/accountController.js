@@ -5,7 +5,7 @@ const addAccount = async (req, res) => {
   try {
     let newAccount = req.body;
     let createdAccount = await BankAccount.create(newAccount);
-    res.send({ msg: 'New Account is created' });
+    res.send({ msg: 'New Account is created' }, createdAccount);
   } catch (error) {
     console.log(error);
     res.status(500).send({ msg: 'Failed to create a new account' });

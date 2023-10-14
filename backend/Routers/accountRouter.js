@@ -13,6 +13,6 @@ router.get('/account', getAccount);
 router.post('/create', addAccount);
 router.put('/update/:id', updateAccount);
 router.put('/transfer/:id', transferAccount);
-router.get('/account/:id', deleteAccount);
+router.delete('/account/:id', deleteAccount);
 
 module.exports = router;
