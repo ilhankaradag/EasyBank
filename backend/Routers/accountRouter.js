@@ -9,7 +9,7 @@ const {
   transferAccount,
 } = require('../controllers/accountController');
 
-router.get('/', getAccount);
+router.get('/account', getAccount);
 router.post('/create', addAccount);
 router.put('/update/:id', updateAccount);
 router.put('/transfer/:id', transferAccount);
