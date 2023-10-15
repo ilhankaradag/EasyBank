@@ -4,7 +4,9 @@ import AccountList from './AccountList';
 const Account = ({ accounts, getAllAccounts, account, setAccount }) => {
   return (
     <div className="account">
-      <h1>Account List</h1>
+      <h1>
+        Account <em>Information</em>
+      </h1>
       <AccountList
         accounts={accounts}
         getAllAccounts={getAllAccounts}

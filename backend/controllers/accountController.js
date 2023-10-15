@@ -37,6 +37,7 @@ const deleteAccount = async (req, res) => {
   try {
     let id = req.params.id;
     await BankAccount.deleteOne({ _id: id });
+    res.send({ msg: 'deleted' });
   } catch (err) {
     console.error(err);
     res
