@@ -1,11 +1,10 @@
 const BankAccount = require('../models/accountModel');
-const mongodb = require('mongodb');
 
 const addAccount = async (req, res) => {
   try {
     let newAccount = req.body;
     let createdAccount = await BankAccount.create(newAccount);
-    res.send({ msg: 'New Account is created' }, createdAccount);
+    res.send({ msg: 'New Account is created' });
   } catch (error) {
     console.log(error);
     res.status(500).send({ msg: 'Failed to create a new account' });
@@ -37,14 +36,7 @@ const updateAccount = async (req, res) => {
 const deleteAccount = async (req, res) => {
   try {
     let id = req.params.id;
-    const data = await dbConnect();
-    const result = await data.deleteOne({ _id: new mongodb.ObjectId(id) });
-
-    if (result.deletedCount === 1) {
-      res.status(200).send({ msg: 'Account deleted successfully' });
-    } else {
-      res.status(404).send({ msg: 'Account not found' });
-    }
+    await BankAccount.deleteOne({ _id: id });
   } catch (err) {
     console.error(err);
     res

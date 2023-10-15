@@ -9,7 +9,7 @@ app.use(cors());
 
 const port = 5000;
 
-app.use('/account', accountRoutes);
+app.use('/', accountRoutes);
 
 app.listen(port, () => {
   console.log(`Server is now listening on port ${port}`);
